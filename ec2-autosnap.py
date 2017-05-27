@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/Users/josh/code/cmd/aws-scripts/bin/python
 #simple python script to snapshot ec2 ebs volumes
 #also delete snapshots older than set retention time
 #

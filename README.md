@@ -6,7 +6,7 @@
 - ebs-autosnap.py - auto EBS Snapshots via cron
 - route2me.py - Change route table to route to current instance
 - ebs-autosnap-lambda.py - auto EBS snapshot from lambda
-
+- add-my-ip   - this script updates a security group with your current public ip.
 
 **usage**
 

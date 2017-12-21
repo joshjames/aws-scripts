@@ -32,6 +32,8 @@ update lambda snapshot with deployment code (ansible? and cloudformation complet
             deploy snapshot_failure (lambda function)
             
 update lambda snapshot code to check for existing snapshots
+need to describe the tags with a meaningful description.. learnt this the hard way impossible to identify snapshots
+when trying to recover!!
 add tagging support > dont snapshot tagged instance with #backupschedule:never
 add tagging support > how often snapshot #backupschedule:daily  #backupschedule:weekly #backupschedule:hourly #backupschedule:monthly
 write universal lambda_slack_notify (supports json message pass through from any sns alert)

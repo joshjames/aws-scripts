@@ -5,7 +5,13 @@
 # dependencies: awscli bash
 if [ -z "$1" ];
 then 
-aws ec2 describe-instances --query "Reservations[*].Instances[*].{name: Tags[?Key=='Name'] | [0].Value, instance_id: InstanceId, ip_address: PrivateIpAddress, Public_ip: PublicIpAddress, state: State.Name}" --output table;
+echo "listing all instances in region ap-southeast-2 - Sydney - Default Profile"
+aws ec2 describe-instances --region ap-southeast-2 --query "Reservations[*].Instances[*].{name: Tags[?Key=='Name'] | [0].Value, instance_id: InstanceId, ip_address: PrivateIpAddress, Public_ip: PublicIpAddress, state: State.Name}" --output table;
+echo "listing all instances in region us-west-1 - California - Default Profile"
+aws ec2 describe-instances --region us-west-1 --query "Reservations[*].Instances[*].{name: Tags[?Key=='Name'] | [0].Value, instance_id: InstanceId, ip_address: PrivateIpAddress, Public_ip: PublicIpAddress, state: State.Name}" --output table;
 else
-aws ec2 describe-instances --query "Reservations[*].Instances[*].{name: Tags[?Key=='Name'] | [0].Value, instance_id: InstanceId, ip_address: PrivateIpAddress, Public_ip: PublicIpAddress, state: State.Name}" $1 $2 --output table;
+echo "listing all instances in region ap-southeast-2 - Sydney - $2 Profile" 
+aws ec2 describe-instances --region ap-southeast-2 --query "Reservations[*].Instances[*].{name: Tags[?Key=='Name'] | [0].Value, instance_id: InstanceId, ip_address: PrivateIpAddress, Public_ip: PublicIpAddress, state: State.Name}" $1 $2 --output table;
+echo "listing all instances in region us-west-1 - California - $2 Profile"
+aws ec2 describe-instances --region us-west-1 --query "Reservations[*].Instances[*].{name: Tags[?Key=='Name'] | [0].Value, instance_id: InstanceId, ip_address: PrivateIpAddress, Public_ip: PublicIpAddress, state: State.Name}" $1 $2 --output table;
 fi
